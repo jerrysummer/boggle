@@ -14,7 +14,7 @@ class App extends React.Component {
     super(props);
     this.state = { 
       board,
-      currentSelection: [],
+      currentSelection: '',
       selectedWords: []
     }
   }
@@ -24,7 +24,9 @@ class App extends React.Component {
   }
 
   handleDieSelect(char,pos) {
-    console.log(char,pos)
+    this.setState(
+      {currentSelection: this.state.currentSelection + char}
+    )
   }
 
   handleWordSubmit() {
@@ -42,11 +44,11 @@ class App extends React.Component {
         />
         <CurrentWord 
           className="currentword" 
-          items={this.state.currentSelection}
+          currentSelection={this.state.currentSelection}
         />
         <ScoreBoard 
           className="scoreboard" 
-          items={this.state.selectedWords}
+          words={this.state.selectedWords}
         />
       </div>
     )

@@ -11,7 +11,7 @@ class CurrentWord extends React.Component {
     render() {
         return (
             <div>
-                <h6>selection:</h6>
+                <h6>{this.props.currentSelection}</h6>
                 <button>submit</button>
             </div>
         );
