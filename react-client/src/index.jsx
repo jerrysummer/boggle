@@ -17,6 +17,7 @@ class App extends React.Component {
       currentSelection: '',
       selectedWords: []
     }
+    this.handleDieSelect = this.handleDieSelect.bind(this)
   }
 
   componentDidMount() {
