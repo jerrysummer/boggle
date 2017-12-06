@@ -5,7 +5,7 @@ const Die = ( props ) => {
     return (
         <div>
             <button onClick={() => handleDieSelect(die.val, pos)}> 
-                {die.val} 
+                {die.val + '  ' + die.selected} 
             </button>
         </div>
     )

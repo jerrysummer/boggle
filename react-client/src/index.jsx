@@ -4,9 +4,9 @@ import $ from 'jquery';
 import DiceGrid from './components/DiceGrid.jsx';
 import CurrentWord from './components/CurrentWord.jsx';
 import ScoreBoard from './components/ScoreBoard.jsx';
-import logo from '../dist/logo.png'
+import logo from '../dist/logo.png';
 
-import board from './helpers/diceRoller'
+import board from './helpers/diceRoller';
 
 
 class App extends React.Component {
@@ -15,31 +15,38 @@ class App extends React.Component {
     this.state = { 
       board,
       currentSelection: '',
+      currentSelectionIndex: [],
       pastSelection: []
     }
     this.handleDieSelect = this.handleDieSelect.bind(this);
     this.handleWordSubmit = this.handleWordSubmit.bind(this);
   }
 
-  componentDidMount() {
-
-  }
 
   handleDieSelect(char,pos) {
+    if(this.state.currentSelectionIndex.includes(pos)) return; //check if char already selected
+    let newBoard =  this.state.board.slice();
+    newBoard[pos]['selected'] = true;
+    let newCurrentSelectionIndex =  this.state.currentSelectionIndex.slice();
+    newCurrentSelectionIndex.push(pos);
+
     this.setState(
       {
-        currentSelection: this.state.currentSelection + char
+        currentSelection: this.state.currentSelection + char,
+        currentSelectionIndex: newCurrentSelectionIndex
       }
     )
   }
 
   handleWordSubmit() {
-    let currentSelection =  this.state.currentSelection;
-    let newPastSelection = this.state.pastSelection.concat([currentSelection]);
+    let currentSelection =  this.state.currentSelection.slice();
+    let newPastSelection = this.state.pastSelection.slice().concat([currentSelection]);
+    board.forEach(die => die.selected = false)
     this.setState(
       {
         pastSelection: newPastSelection,
-        currentSelection: ''
+        currentSelection: '',
+        currentSelectionIndex: []
       }
     )
   }
