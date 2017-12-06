@@ -1,35 +1,55 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import $ from 'jquery';
-import List from './components/List.jsx';
+import DiceGrid from './components/DiceGrid.jsx';
+import CurrentWord from './components/CurrentWord.jsx';
+import ScoreBoard from './components/ScoreBoard.jsx';
+import logo from '../dist/logo.png'
+
+import board from './helpers/diceRoller'
+
 
 class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = { 
-      items: []
+      board,
+      currentSelection: [],
+      selectedWords: []
     }
   }
 
   componentDidMount() {
-    $.ajax({
-      url: '/items', 
-      success: (data) => {
-        this.setState({
-          items: data
-        })
-      },
-      error: (err) => {
-        console.log('err', err);
-      }
-    });
+
+  }
+
+  handleDieSelect(char,pos) {
+    console.log(char,pos)
+  }
+
+  handleWordSubmit() {
+
   }
 
   render () {
-    return (<div>
-      <h1>Item List</h1>
-      <List items={this.state.items}/>
-    </div>)
+    return (
+      <div className="container">
+        <img src={logo} alt="boggle logo" />
+        <DiceGrid 
+          className="dicegrid" 
+          board={this.state.board}
+          handleDieSelect={this.handleDieSelect}
+        />
+        <CurrentWord 
+          className="currentword" 
+          items={this.state.currentSelection}
+        />
+        <ScoreBoard 
+          className="scoreboard" 
+          items={this.state.selectedWords}
+        />
+      </div>
+    )
   }
 }
 
