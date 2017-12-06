@@ -1,12 +1,14 @@
 import React from 'react';
 
 const Die = ( props ) => {
-    let { die, selected, pos , handleDieSelect} = props;
+    let { die, pos , handleDieSelect } = props;
+
     return (
-        <div>
-            <button onClick={() => handleDieSelect(die.val, pos)}> 
-                {die.val + '  ' + die.selected} 
-            </button>
+        <div 
+            className={die.selected ? "selected die" : "die"} 
+            onClick={() => handleDieSelect(die.val, pos)}
+        >
+            {die.val} 
         </div>
     )
 }

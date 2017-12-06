@@ -25,13 +25,16 @@ class App extends React.Component {
 
   handleDieSelect(char,pos) {
     if(this.state.currentSelectionIndex.includes(pos)) return; //check if char already selected
-    let newBoard =  this.state.board.slice();
+
+    let newBoard = JSON.parse(JSON.stringify(this.state.board)); //deep copy board
     newBoard[pos]['selected'] = true;
+
     let newCurrentSelectionIndex =  this.state.currentSelectionIndex.slice();
     newCurrentSelectionIndex.push(pos);
 
     this.setState(
       {
+        board: newBoard,
         currentSelection: this.state.currentSelection + char,
         currentSelectionIndex: newCurrentSelectionIndex
       }
@@ -41,9 +44,13 @@ class App extends React.Component {
   handleWordSubmit() {
     let currentSelection =  this.state.currentSelection.slice();
     let newPastSelection = this.state.pastSelection.slice().concat([currentSelection]);
-    board.forEach(die => die.selected = false)
+
+    let newBoard = JSON.parse(JSON.stringify(this.state.board)); //deep copy board
+    newBoard.forEach(die => die.selected = false)
+
     this.setState(
       {
+        board: newBoard,
         pastSelection: newPastSelection,
         currentSelection: '',
         currentSelectionIndex: []
@@ -56,7 +63,7 @@ class App extends React.Component {
       <div className="container">
         <img src={logo} alt="boggle logo" />
         <DiceGrid 
-          className="dicegrid" 
+          className="diceGrid" 
           board={this.state.board}
           handleDieSelect={this.handleDieSelect}
         />
