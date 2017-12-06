@@ -15,9 +15,10 @@ class App extends React.Component {
     this.state = { 
       board,
       currentSelection: '',
-      selectedWords: []
+      pastSelection: []
     }
-    this.handleDieSelect = this.handleDieSelect.bind(this)
+    this.handleDieSelect = this.handleDieSelect.bind(this);
+    this.handleWordSubmit = this.handleWordSubmit.bind(this);
   }
 
   componentDidMount() {
@@ -26,12 +27,21 @@ class App extends React.Component {
 
   handleDieSelect(char,pos) {
     this.setState(
-      {currentSelection: this.state.currentSelection + char}
+      {
+        currentSelection: this.state.currentSelection + char
+      }
     )
   }
 
   handleWordSubmit() {
-
+    let currentSelection =  this.state.currentSelection;
+    let newPastSelection = this.state.pastSelection.concat([currentSelection]);
+    this.setState(
+      {
+        pastSelection: newPastSelection,
+        currentSelection: ''
+      }
+    )
   }
 
   render () {
@@ -46,10 +56,11 @@ class App extends React.Component {
         <CurrentWord 
           className="currentword" 
           currentSelection={this.state.currentSelection}
+          handleWordSubmit={this.handleWordSubmit}
         />
         <ScoreBoard 
           className="scoreboard" 
-          words={this.state.selectedWords}
+          pastSelection={this.state.pastSelection}
         />
       </div>
     )
