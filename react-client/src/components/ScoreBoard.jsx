@@ -32,7 +32,7 @@ const ScoreBoard = (props) => {
                     wordNScore.map((arr, i) => {
                         return(
                             <tr>
-                                <td>{arr[0]}</td>
+                                <td>{arr[0].toLowerCase()}</td>
                                 <td>{arr[1]}</td>
                             </tr>
                         )

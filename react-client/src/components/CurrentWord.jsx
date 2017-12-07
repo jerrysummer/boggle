@@ -11,10 +11,10 @@ class CurrentWord extends React.Component {
     render() {
         return (
             <div className="currentWord">
-                <h5>Current Selection : </h5>
+                <h5 className="word">Current Word : </h5>
                 <h6>{this.props.currentSelection}</h6>
-                <button onClick={this.props.handleWordSubmit}>
-                    submit
+                <button className="button" onClick={this.props.handleWordSubmit}>
+                    Submit Word
                 </button>
             </div>
         );
