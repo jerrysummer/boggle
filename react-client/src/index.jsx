@@ -12,71 +12,67 @@ import board from './helpers/diceRoller';
 class App extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { 
+    this.state = {
       board,
       currentSelection: '',
       currentSelectionIndex: [],
-      pastSelection: []
-    }
+      pastSelection: [],
+    };
     this.handleDieSelect = this.handleDieSelect.bind(this);
     this.handleWordSubmit = this.handleWordSubmit.bind(this);
   }
 
 
-  handleDieSelect(char,pos) {
-    if(this.state.currentSelectionIndex.includes(pos)) return; //check if char already selected
+  handleDieSelect(char, pos) {
+    if (this.state.currentSelectionIndex.includes(pos)) return; // check if char already selected
 
-    let newBoard = JSON.parse(JSON.stringify(this.state.board)); //deep copy board
-    newBoard[pos]['selected'] = true;
+    const newBoard = JSON.parse(JSON.stringify(this.state.board)); // deep copy board
+    newBoard[pos].selected = true;
 
-    let newCurrentSelectionIndex =  this.state.currentSelectionIndex.slice();
+    const newCurrentSelectionIndex = this.state.currentSelectionIndex.slice();
     newCurrentSelectionIndex.push(pos);
 
-    this.setState(
-      {
-        board: newBoard,
-        currentSelection: this.state.currentSelection + char,
-        currentSelectionIndex: newCurrentSelectionIndex
-      }
-    )
+    this.setState({
+      board: newBoard,
+      currentSelection: this.state.currentSelection + char,
+      currentSelectionIndex: newCurrentSelectionIndex,
+    });
   }
 
   handleWordSubmit() {
-    let currentSelection =  this.state.currentSelection.slice();
-    let newPastSelection = this.state.pastSelection.slice().concat([currentSelection]);
+    const currentSelection = this.state.currentSelection.slice();
+    const newPastSelection = this.state.pastSelection.slice().concat([currentSelection]);
 
     if (currentSelection.length === 0) return;
 
-    let newBoard = JSON.parse(JSON.stringify(this.state.board)); //deep copy board
-    newBoard.forEach(die => die.selected = false)
+    const newBoard = JSON.parse(JSON.stringify(this.state.board)); // deep copy board
+    newBoard.forEach(die => die.selected = false);
 
-    this.setState(
-      {
-        board: newBoard,
-        pastSelection: newPastSelection,
-        currentSelection: '',
-        currentSelectionIndex: []
-      }
-    )
+    this.setState({
+      board: newBoard,
+      pastSelection: newPastSelection,
+      currentSelection: '',
+      currentSelectionIndex: [],
+    });
   }
 
-  render () {
+  render() {
     return (
       <div className="container">
         <img src={logo} alt="boggle logo" />
-        <DiceGrid 
+        <DiceGrid
           board={this.state.board}
           handleDieSelect={this.handleDieSelect}
         />
-        <CurrentWord 
+        <CurrentWord
           currentSelection={this.state.currentSelection}
           handleWordSubmit={this.handleWordSubmit}
         />
-        <ScoreBoard 
+        <ScoreBoard
           pastSelection={this.state.pastSelection}
         />
       </div>
-    )
+    );
   }
 }
 
