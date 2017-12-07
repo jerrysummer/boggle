@@ -22,7 +22,6 @@ const ScoreBoard = (props) => {
     });
     return (
         <div className="scoreBoard">
-            <h4> ScoreBoard </h4>
             <tbody>
                 <tr>
                     <th>Word</th>
