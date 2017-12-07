@@ -22,27 +22,29 @@ const ScoreBoard = (props) => {
     });
     return (
         <div className="scoreBoard">
-            <tbody>
-                <tr>
-                    <th>Word</th>
-                    <th>Score</th>
-                </tr>
-                {
-                    wordNScore.map((arr, i) => {
-                        return(
-                            <tr>
-                                <td>{arr[0].toLowerCase()}</td>
-                                <td>{arr[1]}</td>
-                            </tr>
-                        )
-                    })
-                }
-                <tr>
-                    <th>Total</th>
-                    <th>{totalScore}</th>
-                </tr>
+            <table >
+                <tbody>
+                    <tr>
+                        <th className="leftCol">Word</th>
+                        <th>Score</th>
+                    </tr>
+                    {
+                        wordNScore.map((arr, i) => {
+                            return(
+                                <tr>
+                                    <td className="leftCol">{arr[0].toLowerCase()}</td>
+                                    <td>{arr[1]}</td>
+                                </tr>
+                            )
+                        })
+                    }
+                    <tr>
+                        <th className="leftCol">Total</th>
+                        <th>{totalScore}</th>
+                    </tr>
 
-            </tbody>
+                </tbody>
+            </table>
         </div>
     )
 }
