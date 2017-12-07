@@ -13,7 +13,7 @@ class DiceGrid extends React.Component {
 
     render() {
         return (
-            <div className="die">
+            <div className="diceGrid">
                 {
                     this.props.board.map((die,i) => {
                             return <Die 
