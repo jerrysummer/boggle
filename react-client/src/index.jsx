@@ -45,6 +45,8 @@ class App extends React.Component {
     let currentSelection =  this.state.currentSelection.slice();
     let newPastSelection = this.state.pastSelection.slice().concat([currentSelection]);
 
+    if (currentSelection.length === 0) return;
+
     let newBoard = JSON.parse(JSON.stringify(this.state.board)); //deep copy board
     newBoard.forEach(die => die.selected = false)
 
