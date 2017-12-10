@@ -6,6 +6,7 @@ import ScoreBoard from './components/ScoreBoard.jsx';
 import logo from '../dist/logo.png';
 
 import board from './helpers/diceRoller';
+import validDice from './helpers/dieSelectability';
 
 
 class App extends React.Component {
@@ -16,6 +17,7 @@ class App extends React.Component {
       currentSelection: '',
       currentSelectionIndex: [],
       pastSelection: [],
+      validDice: validDice[25],
     };
     this.handleDieSelect = this.handleDieSelect.bind(this);
     this.handleWordSubmit = this.handleWordSubmit.bind(this);
@@ -23,7 +25,15 @@ class App extends React.Component {
 
 
   handleDieSelect(char, pos) {
-    if (this.state.currentSelectionIndex.includes(pos)) return; // check if char already selected
+    if (this.state.currentSelectionIndex.includes(pos)) {
+      window.alert('You cannot select a die twice');
+      return;
+    } // alert if char already selected
+
+    if (!this.state.validDice.includes(pos)) {
+      window.alert('You can only click on dice that are adjacent to your last selected die');
+      return;
+    } // alert if char not in selectable list
 
     const newBoard = JSON.parse(JSON.stringify(this.state.board)); // deep copy board
     newBoard[pos].selected = true; // mark the selected char as 'selected' for css class assignment
@@ -35,6 +45,7 @@ class App extends React.Component {
       board: newBoard,
       currentSelection: this.state.currentSelection + char,
       currentSelectionIndex: newCurrentSelectionIndex,
+      validDice: validDice[pos],
     });
   }
 
@@ -52,6 +63,7 @@ class App extends React.Component {
       pastSelection: newPastSelection,
       currentSelection: '',
       currentSelectionIndex: [],
+      validDice: validDice[25], // all dice becomes selectable
     });
   }
 
