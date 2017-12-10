@@ -20,15 +20,43 @@ class App extends React.Component {
       validDice: validDice[25],
     };
     this.handleDieSelect = this.handleDieSelect.bind(this);
+    this.handleDieUnselect = this.handleDieUnselect.bind(this);
     this.handleWordSubmit = this.handleWordSubmit.bind(this);
+  }
+
+  handleDieUnselect(pos) {
+    const newBoard = JSON.parse(JSON.stringify(this.state.board)); // deep copy board
+    newBoard[pos].selected = false; // mark the selected char as 'die' for css class assignment
+
+    const newCurrentSelection = this.state.currentSelection.slice(0, -1); // clone current currentSelection string without last char
+
+    const newCurrentSelectionIndex = this.state.currentSelectionIndex.slice(); // clone current selections array
+    newCurrentSelectionIndex.pop(); // delete last item in array
+
+    const wordLength = newCurrentSelectionIndex.length; // how many chars are selected currently
+
+    const validDiceIndex = wordLength ? newCurrentSelectionIndex[wordLength - 1] : 25; // the index reference for validDice
+
+    this.setState({
+      board: newBoard,
+      currentSelection: newCurrentSelection,
+      currentSelectionIndex: newCurrentSelectionIndex,
+      validDice: validDice[validDiceIndex],
+    });
   }
 
 
   handleDieSelect(char, pos) {
-    if (this.state.currentSelectionIndex.includes(pos)) {
-      window.alert('You cannot select a die twice');
+    const prevSelectionIndex = this.state.currentSelectionIndex[this.state.currentSelectionIndex.length - 1];
+
+    if (prevSelectionIndex === pos) {
+      this.handleDieUnselect(pos);
       return;
-    } // alert if char already selected
+    } // run unselect handler if selection is the prev selection
+
+    if (this.state.currentSelectionIndex.includes(pos)) {
+      return;
+    } // return if char already selected
 
     if (!this.state.validDice.includes(pos)) {
       window.alert('You can only click on dice that are adjacent to your last selected die');
