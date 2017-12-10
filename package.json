@@ -4,8 +4,9 @@
   "description": "Boggle game built using React",
   "main": "index.js",
   "scripts": {
-    "react-dev": "webpack -d --watch",
-    "server-dev": "nodemon server/index.js"
+    "start": "nodemon server/index.js",
+    "heroku-postbuild": "webpack -d",
+    "build": "webpack -d --watch"
   },
   "devDependencies": {
     "babel-core": "^6.23.1",
