@@ -28,7 +28,8 @@
     "mongoose": "^4.8.6",
     "react": "^15.4.2",
     "react-dom": "^15.4.2",
-    "url-loader": "^0.6.2"
+    "url-loader": "^0.6.2",
+    "webpack": "^2.2.1"
   },
   "keywords": [],
   "author": "Jerry Xia",
