@@ -11,7 +11,9 @@ const ScoreBoard = (props) => {
     else if (len >= 8) return 11;
   }; // convert string length to score
 
-  const wordNScore = props.pastSelection.map(string => [string, wordToScore(string)]); // convert array of chars to include score
+  const uniqueSelection = [...new Set(props.pastSelection)]; // removes dup strings from array
+
+  const wordNScore = uniqueSelection.map(string => [string, wordToScore(string)]); // convert array of chars to include score
 
   let totalScore = 0;
 
