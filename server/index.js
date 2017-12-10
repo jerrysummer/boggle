@@ -1,16 +1,18 @@
-var express = require('express');
-var bodyParser = require('body-parser');
+const express = require('express');
+const bodyParser = require('body-parser');
 
-var items = require('../database-mongo');
+const port = process.env.PORT || 3000;
 
-var app = express();
+const items = require('../database-mongo');
 
-app.use(express.static(__dirname + '/../react-client/dist'));
+const app = express();
+
+app.use(express.static(`${__dirname}/../react-client/dist`));
 
 
-app.get('/items', function (req, res) {
-  items.selectAll(function(err, data) {
-    if(err) {
+app.get('/items', (req, res) => {
+  items.selectAll((err, data) => {
+    if (err) {
       res.sendStatus(500);
     } else {
       res.json(data);
@@ -18,7 +20,7 @@ app.get('/items', function (req, res) {
   });
 });
 
-app.listen(3000, function() {
+app.listen(port, () => {
   console.log('listening on port 3000!');
 });
 
