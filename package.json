@@ -2,7 +2,7 @@
   "name": "Boggle",
   "version": "1.0.0",
   "description": "Boggle game built using React",
-  "main": "index.js",
+  "main": "webpack.config.js",
   "scripts": {
     "start": "nodemon server/index.js",
     "heroku-postbuild": "webpack -d",
