@@ -1,0 +1,75 @@
+.container {
+  background-color: #F57921;
+  min-height: 600px;
+  border: 1px solid black;
+  width: 350px;
+  margin: 0 auto;
+  margin-top: 60px;
+  text-align: center;
+  padding: 5px 30px 20px 30px;
+  font-family: 'Roboto', sans-serif
+}
+
+.diceGrid {
+  padding: 10px;
+  height: 300px;
+  width: 300px;
+  border: 5px solid #ffca08;
+  margin: 20px auto;
+  background: #398BD4;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  grid-gap: 10px;
+}
+
+.diceGrid .selected {
+  background: #ACCEEC;
+}
+.die {
+  background: white;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: -2px 2px 2px #000;
+}
+.die:hover {
+  background: #68ff75
+}
+
+.currentWord {
+  padding: 10px;
+  display: grid;
+  grid-template-columns: 30% 40% 30%;
+}
+.currentWord .word{
+  margin-top: 3px;
+  float: left;
+}
+.currentWord .letters{
+  margin-top: 3px;
+  float: left;
+}
+.currentWord .button{
+  margin-top: 3px;
+  float: right;
+
+}
+
+.scoreBoard {
+  padding: 10px;
+}
+
+table, th, td {
+  border: 5px solid #FFCA08;
+  border-collapse: collapse;
+  text-align: left;
+  color: black;
+  background: white;
+  padding: 5px;
+  border-spacing: 0;
+}
+
+.leftCol {
+  padding-right: 30px;
+}
