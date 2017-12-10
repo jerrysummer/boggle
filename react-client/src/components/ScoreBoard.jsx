@@ -9,15 +9,16 @@ const ScoreBoard = (props) => {
     else if (len === 6) return 3;
     else if (len === 7) return 5;
     else if (len >= 8) return 11;
-  };
+  }; // convert string length to score
 
-  const wordNScore = props.pastSelection.map(string => [string, wordToScore(string)]);
+  const wordNScore = props.pastSelection.map(string => [string, wordToScore(string)]); // convert array of chars to include score
 
   let totalScore = 0;
 
   wordNScore.forEach((element) => {
     totalScore += element[1];
-  });
+  }); // calculate total score
+
   return (
     <div className="scoreBoard">
       <table >

@@ -1,6 +1,5 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import $ from 'jquery';
 import DiceGrid from './components/DiceGrid.jsx';
 import CurrentWord from './components/CurrentWord.jsx';
 import ScoreBoard from './components/ScoreBoard.jsx';
@@ -27,10 +26,10 @@ class App extends React.Component {
     if (this.state.currentSelectionIndex.includes(pos)) return; // check if char already selected
 
     const newBoard = JSON.parse(JSON.stringify(this.state.board)); // deep copy board
-    newBoard[pos].selected = true;
+    newBoard[pos].selected = true; // mark the selected char as 'selected' for css class assignment
 
-    const newCurrentSelectionIndex = this.state.currentSelectionIndex.slice();
-    newCurrentSelectionIndex.push(pos);
+    const newCurrentSelectionIndex = this.state.currentSelectionIndex.slice(); // clone current selections array
+    newCurrentSelectionIndex.push(pos); // push new selection into selections
 
     this.setState({
       board: newBoard,
@@ -40,13 +39,13 @@ class App extends React.Component {
   }
 
   handleWordSubmit() {
-    const currentSelection = this.state.currentSelection.slice();
-    const newPastSelection = this.state.pastSelection.slice().concat([currentSelection]);
+    const currentSelection = this.state.currentSelection.slice(); // clone current selections
+    const newPastSelection = this.state.pastSelection.slice().concat([currentSelection]); // add current selection to array of past selections
 
-    if (currentSelection.length === 0) return;
+    if (currentSelection.length === 0) return; // error check empty selection
 
     const newBoard = JSON.parse(JSON.stringify(this.state.board)); // deep copy board
-    newBoard.forEach(die => die.selected = false);
+    newBoard.forEach((die) => { die.selected = false; }); // reset board, all dice != selected
 
     this.setState({
       board: newBoard,
