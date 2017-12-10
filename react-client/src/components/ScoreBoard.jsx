@@ -38,8 +38,8 @@ const ScoreBoard = (props) => {
             ))
           }
           <tr>
-            <th className="leftCol">Total</th>
-            <th>{totalScore}</th>
+            <th className="leftCol total">Total</th>
+            <th className="total">{totalScore}</th>
           </tr>
 
         </tbody>

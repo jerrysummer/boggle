@@ -73,3 +73,7 @@ table, th, td {
 .leftCol {
   padding-right: 30px;
 }
+
+.total {
+  background: #ACCEEC;
+}
