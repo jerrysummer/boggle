@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<div
+  className="currentWord"
+>
+  <h5
+    className="word"
+  >
+    Current Word : 
+  </h5>
+  <h5
+    className="letters"
+  />
+  <input
+    className="button"
+    id="submit"
+    onClick={undefined}
+    type="submit"
+    value="Submit Word"
+  />
+</div>
+`;
