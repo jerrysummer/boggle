@@ -11,15 +11,15 @@ const ScoreBoard = (props) => {
     else if (len >= 8) return 11;
   }; // convert string length to score
 
-  const uniqueSelection = [...new Set(props.pastSelection)]; // removes dup strings from array
+  const uniqueSelection = [...new Set(props.pastSelection)]; // removes dup strings from array; game rule
 
-  const wordNScore = uniqueSelection.map(string => [string, wordToScore(string)]); // convert array of chars to include score
+  const wordNScore = uniqueSelection.map(string => [string, wordToScore(string)]); // convert array of chars to array of arrays [char, score]
 
   let totalScore = 0;
 
   wordNScore.forEach((element) => {
     totalScore += element[1];
-  }); // calculate total score
+  }); // calculate total score using the new array that includes score
 
   return (
     <div className="scoreBoard">

@@ -7,9 +7,6 @@ class DiceGrid extends React.Component {
     this.state = {};
   }
 
-  componentDidMount() {
-  }
-
   render() {
     return (
       <div className="diceGrid">

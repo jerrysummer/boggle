@@ -1,6 +1,13 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders correctly 1`] = `
+exports[`renders correctly when not selected 1`] = `
+<div
+  className="die"
+  onClick={[Function]}
+/>
+`;
+
+exports[`renders correctly when selected 1`] = `
 <div
   className="die"
   onClick={[Function]}

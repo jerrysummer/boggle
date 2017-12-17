@@ -2,9 +2,16 @@ import React from 'react';
 import renderer from 'react-test-renderer';
 import Die from '../Die';
 
-it('renders correctly', () => {
+it('renders correctly when not selected', () => {
   const component = renderer
     .create(<Die die="{selected: false, val:A}" />)
+    .toJSON();
+  expect(component).toMatchSnapshot();
+});
+
+it('renders correctly when selected', () => {
+  const component = renderer
+    .create(<Die die="{selected: true, val:A}" />)
     .toJSON();
   expect(component).toMatchSnapshot();
 });
