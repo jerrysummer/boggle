@@ -1,9 +1,6 @@
 import React from 'react';
 
-const Die = (props) => {
-  const { die, pos, handleDieSelect } = props;
-
-  return (
+const Die = ({ die, pos, handleDieSelect }) => (
     <div
       className={die.selected ? 'selected die' : 'die'}
       onClick={() => handleDieSelect(die.val, pos)}
@@ -11,6 +8,5 @@ const Die = (props) => {
       {die.val}
     </div>
   );
-};
 
 export default Die;

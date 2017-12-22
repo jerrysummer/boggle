@@ -37,13 +37,13 @@ function shuffle(array) {
   return array;
 }
 
-// makeBoard
+// makeBoard for the shuffled dice array
 function makeBoard(diceArray) {
   const board = [];
   diceArray.forEach((die) => {
-    const sideUp = randomIntFromInterval(0, 5);
+    const sideUp = randomIntFromInterval(0, 5); // generate a random number among 0-5
 
-    const charOnTop = die.charAt(sideUp);
+    const charOnTop = die.charAt(sideUp); // create a letter from the die's string
 
     if (charOnTop === 'q') {
       board.push({ val: 'Qu', selected: false });
