@@ -38,6 +38,9 @@
   opacity: .8;
   /* filter: brightness(150%); */
 }
+.die:active {
+  transform: rotate(0.01turn);
+}
 
 .die-circle {
   background: linear-gradient(rgb(226, 226, 226), rgb(255, 255, 255),rgb(255, 255, 255));
