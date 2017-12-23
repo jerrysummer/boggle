@@ -36,6 +36,7 @@
 }
 .die:hover {
   opacity: .8;
+  cursor: pointer;
   /* filter: brightness(150%); */
 }
 .die:active {
