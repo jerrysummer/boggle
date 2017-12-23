@@ -4,12 +4,20 @@ exports[`renders correctly when not selected 1`] = `
 <div
   className="die"
   onClick={[Function]}
-/>
+>
+  <div
+    className="die-circle"
+  />
+</div>
 `;
 
 exports[`renders correctly when selected 1`] = `
 <div
   className="die"
   onClick={[Function]}
-/>
+>
+  <div
+    className="die-circle"
+  />
+</div>
 `;

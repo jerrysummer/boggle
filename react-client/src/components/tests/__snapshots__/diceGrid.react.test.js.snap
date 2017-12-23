@@ -8,151 +8,251 @@ exports[`renders correctly 1`] = `
     className="die"
     onClick={[Function]}
   >
-    A
+    <div
+      className="die-circle"
+    >
+      A
+    </div>
   </div>
   <div
     className="die"
     onClick={[Function]}
   >
-    E
+    <div
+      className="die-circle"
+    >
+      E
+    </div>
   </div>
   <div
     className="die"
     onClick={[Function]}
   >
-    S
+    <div
+      className="die-circle"
+    >
+      S
+    </div>
   </div>
   <div
     className="die"
     onClick={[Function]}
   >
-    Qu
+    <div
+      className="die-circle"
+    >
+      Qu
+    </div>
   </div>
   <div
     className="die"
     onClick={[Function]}
   >
-    H
+    <div
+      className="die-circle"
+    >
+      H
+    </div>
   </div>
   <div
     className="die"
     onClick={[Function]}
   >
-    N
+    <div
+      className="die-circle"
+    >
+      N
+    </div>
   </div>
   <div
     className="die"
     onClick={[Function]}
   >
-    J
+    <div
+      className="die-circle"
+    >
+      J
+    </div>
   </div>
   <div
     className="die"
     onClick={[Function]}
   >
-    C
+    <div
+      className="die-circle"
+    >
+      C
+    </div>
   </div>
   <div
     className="die"
     onClick={[Function]}
   >
-    T
+    <div
+      className="die-circle"
+    >
+      T
+    </div>
   </div>
   <div
     className="die"
     onClick={[Function]}
   >
-    P
+    <div
+      className="die-circle"
+    >
+      P
+    </div>
   </div>
   <div
     className="die"
     onClick={[Function]}
   >
-    U
+    <div
+      className="die-circle"
+    >
+      U
+    </div>
   </div>
   <div
     className="die"
     onClick={[Function]}
   >
-    U
+    <div
+      className="die-circle"
+    >
+      U
+    </div>
   </div>
   <div
     className="die"
     onClick={[Function]}
   >
-    E
+    <div
+      className="die-circle"
+    >
+      E
+    </div>
   </div>
   <div
     className="die"
     onClick={[Function]}
   >
-    M
+    <div
+      className="die-circle"
+    >
+      M
+    </div>
   </div>
   <div
     className="die"
     onClick={[Function]}
   >
-    N
+    <div
+      className="die-circle"
+    >
+      N
+    </div>
   </div>
   <div
     className="die"
     onClick={[Function]}
   >
-    I
+    <div
+      className="die-circle"
+    >
+      I
+    </div>
   </div>
   <div
     className="die"
     onClick={[Function]}
   >
-    D
+    <div
+      className="die-circle"
+    >
+      D
+    </div>
   </div>
   <div
     className="die"
     onClick={[Function]}
   >
-    N
+    <div
+      className="die-circle"
+    >
+      N
+    </div>
   </div>
   <div
     className="die"
     onClick={[Function]}
   >
-    R
+    <div
+      className="die-circle"
+    >
+      R
+    </div>
   </div>
   <div
     className="die"
     onClick={[Function]}
   >
-    S
+    <div
+      className="die-circle"
+    >
+      S
+    </div>
   </div>
   <div
     className="die"
     onClick={[Function]}
   >
-    D
+    <div
+      className="die-circle"
+    >
+      D
+    </div>
   </div>
   <div
     className="die"
     onClick={[Function]}
   >
-    Y
+    <div
+      className="die-circle"
+    >
+      Y
+    </div>
   </div>
   <div
     className="die"
     onClick={[Function]}
   >
-    W
+    <div
+      className="die-circle"
+    >
+      W
+    </div>
   </div>
   <div
     className="die"
     onClick={[Function]}
   >
-    E
+    <div
+      className="die-circle"
+    >
+      E
+    </div>
   </div>
   <div
     className="die"
     onClick={[Function]}
   >
-    Y
+    <div
+      className="die-circle"
+    >
+      Y
+    </div>
   </div>
 </div>
 `;
