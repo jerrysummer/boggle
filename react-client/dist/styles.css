@@ -39,7 +39,7 @@
   /* filter: brightness(150%); */
 }
 .die:active {
-  transform: rotate(0.01turn);
+  transform: scale(0.95,0.95);
 }
 
 .die-circle {
