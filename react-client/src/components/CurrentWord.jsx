@@ -1,11 +1,8 @@
 import React from 'react';
+import { connect } from 'react-redux';
 
 
 class CurrentWord extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {};
-  }
   render() {
     return (
       <div className="currentWord">
@@ -23,4 +20,8 @@ class CurrentWord extends React.Component {
   }
 }
 
-export default CurrentWord;
+function mapStateToProps({ currentSelection }) {
+  return { currentSelection };
+}
+
+export default connect(mapStateToProps)(CurrentWord);
