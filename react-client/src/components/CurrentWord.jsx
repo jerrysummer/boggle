@@ -1,8 +1,10 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { handleWordSubmit } from '../actions';
 
 
 class CurrentWord extends React.Component {
+  componentDidMount() {}
   render() {
     return (
       <div className="currentWord">
@@ -13,7 +15,7 @@ class CurrentWord extends React.Component {
           value="Submit Word"
           id="submit"
           className="button"
-          onClick={this.props.handleWordSubmit}
+          onClick={() => this.props.handleWordSubmit(this.props.currentSelection)}
         />
       </div>
     );
@@ -24,4 +26,4 @@ function mapStateToProps({ currentSelection }) {
   return { currentSelection };
 }
 
-export default connect(mapStateToProps)(CurrentWord);
+export default connect(mapStateToProps, { handleWordSubmit })(CurrentWord);

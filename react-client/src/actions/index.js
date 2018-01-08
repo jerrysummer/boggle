@@ -1,7 +1,5 @@
 export const HANDLE_DIE_SELECT = 'handle_die_select';
-export const HANDLE_WORD_SELECT = 'handle_word_select';
-export const CREATE_POST = 'create_post';
-export const DELETE_POST = 'delete_post';
+export const HANDLE_WORD_SUBMIT = 'handle_word_submit';
 
 export function handleDieUnselect() {
   return {
@@ -19,7 +17,7 @@ export function handleDieSelect(char, pos) {
 
 export function handleWordSubmit(word) {
   return {
-    type: HANDLE_WORD_SELECT,
+    type: HANDLE_WORD_SUBMIT,
     payload: word,
   };
 }
