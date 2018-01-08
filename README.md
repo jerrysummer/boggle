@@ -4,13 +4,12 @@ A Boggle game using react + redux
 ### Live Demo
 https://boggle-game-jerry.herokuapp.com/
 
-![boggle demo](./boggleDemo.gif?raw=true "Demo")
+![boggle demo](./boggleReduxDemo.gif?raw=true "Demo")
 
 
 ## Requirements
 
 - Node 6.9.x
-- Jest 21.2.x
 
 ## Development
 
