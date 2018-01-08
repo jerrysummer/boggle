@@ -1,4 +1,6 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import { handleDieSelect } from '../actions';
 
 const Die = ({ die, pos, handleDieSelect }) => (
   <div
@@ -11,4 +13,4 @@ const Die = ({ die, pos, handleDieSelect }) => (
   </div>
 );
 
-export default Die;
+export default connect(null, { handleDieSelect })(Die);

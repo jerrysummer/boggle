@@ -1,5 +1,6 @@
 import React from 'react';
 import Die from './Die.jsx';
+import { connect } from 'react-redux';
 
 class DiceGrid extends React.Component {
   constructor(props) {
@@ -11,16 +12,19 @@ class DiceGrid extends React.Component {
     return (
       <div className="diceGrid">
         {
-                    this.props.board.map((die, i) => (<Die
-                      die={die}
-                      key={i}
-                      pos={i}
-                      handleDieSelect={this.props.handleDieSelect}
-                    />))
-                }
+          this.props.board.map((die, i) => (<Die
+            die={die}
+            key={i}
+            pos={i}
+          />))
+        }
       </div>
     );
   }
 }
 
-export default DiceGrid;
+function mapStateToProps({ board }) {
+  return { board };
+}
+
+export default connect(mapStateToProps)(DiceGrid);

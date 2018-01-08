@@ -1,0 +1,67 @@
+
+let dice = [
+  'aaafrs',
+  'aaeeee',
+  'aafirs',
+  'adennn',
+  'aeeeem',
+  'aeegmu',
+  'aegmnn',
+  'afirsy',
+  'bjkqxz',
+  'ccenst',
+  'ceiilt',
+  'ceilpt',
+  'ceipst',
+  'ddhnot',
+  'dhhlor',
+  'dhlnor',
+  'dhlnor',
+  'eiiitt',
+  'emottt',
+  'ensssu',
+  'fiprsy',
+  'gorrvw',
+  'iprrry',
+  'nootuw',
+  'ooottu',
+];
+
+
+// shuffle randmozies the order of the elements in an array
+function shuffle(array) {
+  for (let i = array.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [array[i], array[j]] = [array[j], array[i]];
+  }
+  return array;
+}
+
+// makeBoard for the shuffled dice array
+function makeBoard(diceArray) {
+  const board = [];
+  diceArray.forEach((die) => {
+    const sideUp = randomIntFromInterval(0, 5); // generate a random number among 0-5
+
+    const charOnTop = die.charAt(sideUp); // create a letter from the die's string
+
+    if (charOnTop === 'q') {
+      board.push({ val: 'Qu', selected: false });
+    } else {
+      board.push({ val: charOnTop.toUpperCase(), selected: false });
+    }
+  });
+  return board;
+}
+
+function randomIntFromInterval(min, max) {
+  return Math.floor(Math.random() * (max - min + 1) + min);
+}
+
+const board = makeBoard(dice);
+
+dice = shuffle(dice);
+
+export default function (state = board, action) {
+  return state;
+}
