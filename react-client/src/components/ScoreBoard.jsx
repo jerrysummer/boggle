@@ -11,7 +11,7 @@ const ScoreBoard = (props) => {
     else if (len >= 8) return 11;
   }; // convert string length to score
 
-  const uniqueSelection = [...new Set(props.pastSelection)]; // removes dup strings from array; game rule
+  const uniqueSelection = [...new Set(props.pastSelections)]; // removes dup strings from array; game rule
 
   const wordNScore = uniqueSelection.map(string => [string, wordToScore(string)]); // convert array of chars to array of arrays [char, score]
 
@@ -32,7 +32,7 @@ const ScoreBoard = (props) => {
           {
             wordNScore.map((arr, i) => (
               <tr key={i}>
-                <td className="leftCol">{arr[0].toLowerCase()}</td>
+                <td className="leftCol">{arr[0].join('').toLowerCase()}</td>
                 <td>{arr[1]}</td>
               </tr>
             ))

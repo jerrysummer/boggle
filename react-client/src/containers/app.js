@@ -5,8 +5,7 @@ import DiceGrid from '../components/DiceGrid.jsx';
 import CurrentWord from '../components/CurrentWord.jsx';
 import ScoreBoard from '../components/ScoreBoard.jsx';
 import logo from '../../dist/logo.png';
-import board from '../helpers/diceRoller';
-import validDice from '../helpers/dieSelectability';
+
 
 /* eslint-disable */
 
@@ -31,7 +30,7 @@ class App extends React.Component {
         <img src={logo} alt="boggle logo" />
         <DiceGrid />
         <CurrentWord />
-        <ScoreBoard />
+        <ScoreBoard pastSelections={this.props.pastSelections}/>
       </div>
     );
   }
@@ -108,8 +107,8 @@ class App extends React.Component {
   // }
 }
 
-function mapStateToProps({ board }) {
-  return { board };
+function mapStateToProps({ pastSelections }) {
+  return { pastSelections };
 }
 
 export default connect(mapStateToProps)(App);

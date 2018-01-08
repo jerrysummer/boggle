@@ -1,5 +1,5 @@
 # boggle
-A Boggle game using react
+A Boggle game using react + redux
 
 ### Live Demo
 https://boggle-game-jerry.herokuapp.com/
